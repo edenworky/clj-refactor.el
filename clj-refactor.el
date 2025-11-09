@@ -885,7 +885,7 @@ A new record is created to define this constructor."
         (let ((file (expand-file-name "pom.xml" project-dir)))
           (and (file-exists-p file) file))
         (let ((file (expand-file-name "bb.edn" project-dir)))
-          (and (file-exists-p file) file))
+          (and (file-exists-p file) file)))))
 
 (defun cljr--project-files ()
   (split-string (shell-command-to-string
