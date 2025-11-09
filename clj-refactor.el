@@ -3556,7 +3556,7 @@ warning by customizing `cljr-suppress-no-project-warning'.)"))))
     (message "Debug mode off")))
 
 (defun cljr--check-clojure-version ()
-  (if-let ((clojure-version (cider--clojure-version)))
+  (if-let ((clojure-version (or (cider--clojure-version) (cider--babashka-version)))
       (when (version< clojure-version cljr-minimum-clojure-version)
         (cider-repl-emit-interactive-stderr
          (format "WARNING: Clojure version (%s) is not supported (minimum %s). The refactor-nrepl middleware won't work and has been disabled!"
